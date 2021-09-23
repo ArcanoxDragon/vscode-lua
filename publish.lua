@@ -231,7 +231,7 @@ shell {
     cwd = out,
 }
 
-shell {
+--[[ shell {
     'git', 'add', '*',
 }
 
@@ -263,6 +263,6 @@ if ovsxToken then
         'npx', 'ovsx', 'publish', vsix,
         '-p', ovsxToken
     }
-end
+end ]]
 
 print('完成')

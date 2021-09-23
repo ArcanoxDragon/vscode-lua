@@ -3,13 +3,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "发布",
+            "name": "PowerShell Launch Current File",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${file}",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Release",
             "type": "lua",
             "request": "launch",
             "stopOnEntry": false,
             "program": "${workspaceRoot}/publish.lua",
-            "arg": [
-            ],
+            "arg": [],
             "consoleCoding": "utf8",
             "sourceCoding": "utf8",
             "luaexe": "${workspaceFolder}/server/bin/Windows/lua-language-server.exe",
@@ -19,13 +25,12 @@
             ],
         },
         {
-            "name": "导出配置文件",
+            "name": "Export Configuration File",
             "type": "lua",
             "request": "launch",
             "stopOnEntry": false,
             "program": "${workspaceRoot}/setting/build.lua",
-            "arg": [
-            ],
+            "arg": [],
             "luaexe": "${workspaceFolder}/server/bin/Windows/lua-language-server.exe",
             "path": "${workspaceFolder}/?.lua;${workspaceFolder}/server/script/?.lua;${workspaceFolder}/server/script/?/init.lua",
             "consoleCoding": "utf8",
@@ -40,8 +45,12 @@
             "request": "launch",
             "name": "Launch Client",
             "runtimeExecutable": "${execPath}",
-            "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
-            "outFiles": ["${workspaceRoot}/client/out/**/*.js"],
+            "args": [
+                "--extensionDevelopmentPath=${workspaceRoot}"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/client/out/**/*.js"
+            ],
         },
     ]
 }

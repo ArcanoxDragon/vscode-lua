@@ -14,7 +14,6 @@
         "untrustedWorkspaces": {
             "description": "",
             "restrictedConfigurations": [
-                "Lua.develop.enable",
                 "Lua.runtime.plugin",
                 "Lua.misc.parameters"
             ],
@@ -150,7 +149,7 @@
                     "type": "array"
                 },
                 "Lua.diagnostics.ignoredFiles": {
-                    "default": "Disable",
+                    "default": "Opened",
                     "enum": [
                         "Enable",
                         "Opened",
@@ -166,7 +165,7 @@
                     "type": "string"
                 },
                 "Lua.diagnostics.libraryFiles": {
-                    "default": "Disable",
+                    "default": "Opened",
                     "enum": [
                         "Enable",
                         "Opened",
@@ -242,17 +241,6 @@
                         "deprecated": {
                             "default": "Opened",
                             "description": "%config.diagnostics.deprecated%",
-                            "enum": [
-                                "Any",
-                                "Opened",
-                                "None"
-                            ],
-                            "scope": "resource",
-                            "type": "string"
-                        },
-                        "different-requires": {
-                            "default": "Any",
-                            "description": "%config.diagnostics.different-requires%",
                             "enum": [
                                 "Any",
                                 "Opened",
@@ -640,18 +628,6 @@
                         "deprecated": {
                             "default": "Warning",
                             "description": "%config.diagnostics.deprecated%",
-                            "enum": [
-                                "Error",
-                                "Warning",
-                                "Information",
-                                "Hint"
-                            ],
-                            "scope": "resource",
-                            "type": "string"
-                        },
-                        "different-requires": {
-                            "default": "Warning",
-                            "description": "%config.diagnostics.different-requires%",
                             "enum": [
                                 "Error",
                                 "Warning",
@@ -1455,32 +1431,44 @@
             {
                 "language": "lua",
                 "scopes": {
-                    "interface.declaration": [
+                    "function": [
+                        "variable.function.lua"
+                    ],
+                    "function.declaration": [
                         "entity.name.function.lua"
                     ],
-                    "namespace.deprecated": [
-                        "entity.name.label"
-                    ],
-                    "namespace.readonly": [
-                        "constant.language.lua"
-                    ],
-                    "namespace.static": [
+                    "function.defaultLibrary": [
                         "support.function.lua"
                     ],
+                    "function.readonly": [
+                        "variable.other.flagme.lua"
+                    ],
+                    "function.static": [
+                        "entity.name.function.lua"
+                    ],
                     "parameter.declaration": [
-                        "variable.parameter"
+                        "variable.parameter.lua"
+                    ],
+                    "property": [
+                        "variable.other.property.lua"
                     ],
                     "property.declaration": [
-                        "entity.other.attribute"
-                    ],
-                    "variable": [
-                        "variable.other.lua"
+                        "entity.other.property.lua"
                     ],
                     "variable.abstract": [
                         "variable.other.constant.lua"
                     ],
-                    "variable.static": [
+                    "variable.defaultLibrary": [
+                        "support.constant.lua"
+                    ],
+                    "variable.local": [
+                        "variable.other.lua"
+                    ],
+                    "variable.readonly": [
                         "variable.other.constant.lua"
+                    ],
+                    "variable.static": [
+                        "variable.other.lua"
                     ]
                 }
             }
@@ -1488,7 +1476,6 @@
     },
     "description": "Lua Language Server coded by Lua",
     "displayName": "Lua",
-    "enableProposedApi": true,
     "engines": {
         "vscode": "^1.23.0"
     },
